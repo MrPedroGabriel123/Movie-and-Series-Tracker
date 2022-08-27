@@ -2,6 +2,17 @@
 
 internal static class Track
 {
+    public class User
+    {
+        public string Name { get; set; }
+        public Shows Shows { get; set; }
+    }
+    public class Shows
+    {
+        public string Name { get; set; }
+        public int Season { get; set; }
+        public int Episode { get; set; }
+    }
     public static void Main()
     {
         Console.ForegroundColor = ConsoleColor.Blue;
@@ -38,11 +49,10 @@ internal static class Track
                         var userInput = Console.ReadLine();
                         var user = new User();
                         user.Name = userInput;
-                        {
-                            Name = userInput;
-
-                    };
-            }
+                        Console.WriteLine($"{userInput} created");
+                        Console.ReadKey();
+                        Console.Clear();
+                 }
             break;
                     
             }
