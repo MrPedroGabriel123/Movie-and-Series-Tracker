@@ -11,6 +11,7 @@ internal static class Track
         Console.Clear();
         
         /////Menu below
+        while (true) { 
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("Movie Time = Active Sub");
         Console.ForegroundColor = ConsoleColor.Red;
@@ -21,7 +22,7 @@ internal static class Track
         ///Menu code up
 
         ///Second menu for each Choice
-        switch (userFirstChoice)
+            switch (userFirstChoice)
         {
             ///Account managemnt
             case 1:
@@ -31,16 +32,22 @@ internal static class Track
                 var userFirstchoice = "Enter choice".PromptInt(minValue: 1, maxValue: 2);
                 if (userFirstchoice == 1)
                 {
+
                     Console.Clear();
-                    Console.WriteLine("What will be name of account number 1");
-                   var Account1 = Console.ReadLine();
-                    Console.WriteLine($"Welcome {Account1}");
-                }
-                break;
-               
+                    Console.WriteLine("What will be name of account");
+                        var userInput = Console.ReadLine();
+                        var user = new User();
+                        user.Name = userInput;
+                        {
+                            Name = user;
+
+                    };
+            }
+            break;
+                    
+            }
         }
-      
-        
+
     }
 }
     
