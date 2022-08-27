@@ -35,13 +35,7 @@ internal static class Track
 
                     Console.Clear();
                     Console.WriteLine("What will be name of account");
-                        var userInput = Console.ReadLine();
-                        var user = new User();
-                        user.Name = userInput;
-                        {
-                            Name = user;
-
-                    };
+                     
             }
             break;
                     
