@@ -2,17 +2,7 @@
 
 internal static class Track
 {
-    public class User
-    {
-        public string Name { get; set; }
-        public Shows Shows { get; set; }
-    }
-    public class Shows
-    {
-        public string Name { get; set; }
-        public int Season { get; set; }
-        public int Episode { get; set; }
-    }
+    
     public static void Main()
     {
         Console.ForegroundColor = ConsoleColor.Blue;
@@ -52,8 +42,17 @@ internal static class Track
                         Console.WriteLine($"{userInput} created");
                         Console.ReadKey();
                         Console.Clear();
-                 }
-            break;
+                    }
+                    
+                if (userFirstChoice == 2)
+                    {
+                        Console.WriteLine("Which of the accounts you want to delete?");
+                        var users = List<User>;
+                        foreach (var user in users)
+                        {
+                            Console.WriteLine(user);
+                        }
+                    }
                     
             }
         }
