@@ -9,6 +9,7 @@ internal static class Track
         Console.ReadKey();
         ///Here there should be a reset on screen using Console.Clear();
         Console.Clear();
+        
         /////Menu below
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("Movie Time = Active Sub");
@@ -17,6 +18,21 @@ internal static class Track
         Console.WriteLine("2) Choose what profile you want to enter");
         Console.WriteLine("3) Enter your profile");
         var userFirstChoice = "Enter choice".PromptInt(minValue: 1, maxValue: 3);
-        ///Menu code
+        ///Menu code up
+
+        ///Second menu for each Choice
+        switch (userFirstChoice)
+        {
+            ///Account managemnt
+            case 1:
+                Console.Clear();
+                Console.WriteLine("1) Create a new profile");
+                Console.WriteLine("2) Delete a Profile");
+                var userSecondChoice = "Enter choice".PromptInt(minValue: 1, maxValue: 2);
+                break;
+        }
+      
+        
     }
 }
+    
