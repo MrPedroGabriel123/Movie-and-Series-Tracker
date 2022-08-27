@@ -28,8 +28,8 @@ internal static class Track
                 Console.Clear();
                 Console.WriteLine("1) Create a new profile");
                 Console.WriteLine("2) Delete a Profile");
-                var userSecondChoice = "Enter choice".PromptInt(minValue: 1, maxValue: 2);
-                if (userSecondChoice == 1)
+                var userFirstchoice = "Enter choice".PromptInt(minValue: 1, maxValue: 2);
+                if (userFirstchoice == 1)
                 {
                     Console.Clear();
                     Console.WriteLine("What will be name of account number 1");
