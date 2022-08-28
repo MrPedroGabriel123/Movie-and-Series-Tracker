@@ -1,4 +1,6 @@
-﻿public static class Helper
+﻿namespace SeriesTracker;
+
+public static class Helper
 {
     public static int PromptInt(this string question, string? description = null, int minValue = 0,
         int maxValue = int.MaxValue, int? defaultValue = null)
