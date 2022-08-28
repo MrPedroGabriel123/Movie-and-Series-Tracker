@@ -47,12 +47,10 @@ internal static class Track
                 if (userFirstChoice == 2)
                     {
                         Console.WriteLine("Which of the accounts you want to delete?");
-                        var users = List<User>;
-                        foreach (var user in users)
-                        {
-                            Console.WriteLine(user);
-                        }
+                      
+
                     }
+                    break;
                     
             }
         }
