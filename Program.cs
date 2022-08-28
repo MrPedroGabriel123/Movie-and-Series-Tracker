@@ -45,8 +45,10 @@ internal static class Track
                             // Check if the user already exists.
 
                             var userInput = Console.ReadLine();
+                            
                             user.Name = userInput;
 
+                            userList.Add(user);
                             // Gather more information
 
                             Console.WriteLine($"{userInput} created");
@@ -56,18 +58,23 @@ internal static class Track
                         }
                         case 2:
                             Console.WriteLine("Which of the accounts you want to delete?");
+                            
+                            foreach (var userInput in userList)
+                            {
+                                Console.WriteLine($"{userList}");
+                            }
                             break;
                     }
 
                     // Needs a better place for this code...
 
                     // Once you've done everything with the account you could populate it into the list.
-                    userList.Add(user);
-                    // Fetching the user
-                    var fetchedUser =
-                        userList.FirstOrDefault(x => x.Name == "John"); // Replace "John" with accepted input
+                     // userList.Add(user);
+                    //  Fetching the user
+                     // var fetchedUser =
+                      //  userList.FirstOrDefault(x => x.Name == "John"); // Replace "John" with accepted input
                     // This will throw null reference exception since we never populated "Game of Thrones" into John.
-                    Console.WriteLine(fetchedUser.Shows.FirstOrDefault(x => x.Name == "Game of Thrones"));
+                      // Console.WriteLine(fetchedUser.Shows.FirstOrDefault(x => x.Name == "Game of Thrones"));
 
                     break;
             }
