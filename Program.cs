@@ -68,6 +68,13 @@ internal static class Track
                         }
                            
                         case 2:
+                            if (!userList.Any())
+                            {
+                                Console.Write("There are non accounts created");
+                                Console.ReadKey();
+                                Console.Clear();
+                                break;
+                            }
                             Console.WriteLine("Which of the accounts you want to delete?");
                             Console.WriteLine(
                                 $"Users ({userList.Count}): {string.Join(", ", userList.Select(x => x.Name))}");
