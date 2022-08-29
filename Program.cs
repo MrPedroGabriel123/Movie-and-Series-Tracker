@@ -1,12 +1,13 @@
-﻿namespace SeriesTracker;
+﻿using System.Text.Json;
+
+namespace SeriesTracker;
 
 internal static class Track
 {
     public static void Main()
     {
         // user instantiation 
-        var userList = new List<User>();
-        var user = new User();
+        var userList = HandleList();
 
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("Welcome to Movie Time, Here you can track of everything you see or have seen!");
@@ -43,41 +44,66 @@ internal static class Track
                             Console.WriteLine("What will be name of account");
 
                             // Check if the user already exists.
-
-                            var userInput = Console.ReadLine();
+                            var name = Console.ReadLine();
+                            var userExists = userList.Exists(x => x.Name == name);
+                            if (userExists)
+                            {
+                                Console.WriteLine("User already exists");
+                                Console.ReadKey();
+                                break;
+                            }
                             
-                            user.Name = userInput;
+                            var user = new User
+                            {
+                                Name = name
+                            };
 
                             userList.Add(user);
+                            HandleList(userList);
                             // Gather more information
 
-                            Console.WriteLine($"{userInput} created");
+                            Console.WriteLine($"{user.Name} created");
                             Console.ReadKey();
                             Console.Clear();
                             break;
                         }
                         case 2:
                             Console.WriteLine("Which of the accounts you want to delete?");
-                            
-                            foreach (var userInput in userList)
+                            Console.WriteLine(
+                                $"Users ({userList.Count}): {string.Join(", ", userList.Select(x => x.Name))}");
+                            var userInput = Console.ReadLine();
+
+                            var userObj = userList.FirstOrDefault(x => x.Name == userInput);
+                            if (userObj is null)
                             {
-                                Console.WriteLine($"{userList}");
+                                Console.WriteLine("User not found");
+                                Console.ReadKey();
+                                break;
                             }
+
+                            userList.Remove(userObj);
+                            HandleList(userList);
+
                             break;
                     }
-
-                    // Needs a better place for this code...
-
-                    // Once you've done everything with the account you could populate it into the list.
-                     // userList.Add(user);
-                    //  Fetching the user
-                     // var fetchedUser =
-                      //  userList.FirstOrDefault(x => x.Name == "John"); // Replace "John" with accepted input
-                    // This will throw null reference exception since we never populated "Game of Thrones" into John.
-                      // Console.WriteLine(fetchedUser.Shows.FirstOrDefault(x => x.Name == "Game of Thrones"));
 
                     break;
             }
         }
+    }
+
+    private static List<User> HandleList(List<User>? userList = null)
+    {
+        if (userList == null)
+        {
+            userList = new List<User>();
+            if (!File.Exists("accounts.json")) return userList;
+            var file = File.ReadAllText("accounts.json");
+            return JsonSerializer.Deserialize<List<User>>(file) ?? userList;
+        }
+
+        var json = JsonSerializer.Serialize(userList);
+        File.WriteAllText("accounts.json", json);
+        return userList;
     }
 }
