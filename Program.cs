@@ -23,8 +23,7 @@ internal static class Track
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("1) Create a new Profile (Up to 4) ");
             Console.WriteLine("2) Choose what profile you want to enter");
-            Console.WriteLine("3) Enter your profile");
-            var choice = "Enter choice".PromptInt(minValue: 1, maxValue: 3);
+            var choice = "Enter choice".PromptInt(minValue: 1, maxValue: 2);
             // Menu code up
 
             // Second menu for each Choice
