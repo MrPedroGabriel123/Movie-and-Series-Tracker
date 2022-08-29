@@ -67,6 +67,7 @@ internal static class Track
                             Console.Clear();
                             break;
                         }
+                           
                         case 2:
                             Console.WriteLine("Which of the accounts you want to delete?");
                             Console.WriteLine(
@@ -74,16 +75,19 @@ internal static class Track
                             var userInput = Console.ReadLine();
 
                             var userObj = userList.FirstOrDefault(x => x.Name == userInput);
+                            
                             if (userObj is null)
                             {
                                 Console.WriteLine("User not found");
                                 Console.ReadKey();
+                                Console.Clear();
                                 break;
                             }
 
                             userList.Remove(userObj);
                             HandleList(userList);
-
+                     
+                            Console.Clear();
                             break;
                     }
 
@@ -102,7 +106,7 @@ internal static class Track
             return JsonSerializer.Deserialize<List<User>>(file) ?? userList;
         }
 
-        var json = JsonSerializer.Serialize(userList);
+        var json = JsonSerializer.Serialize(userList, new JsonSerializerOptions { WriteIndented = true} );
         File.WriteAllText("accounts.json", json);
         return userList;
     }
