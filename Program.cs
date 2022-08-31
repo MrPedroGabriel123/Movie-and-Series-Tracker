@@ -23,13 +23,15 @@ internal static class Track
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("1) Create a new Profile (Up to 4) ");
             Console.WriteLine("2) Choose what profile you want to enter");
-            var choice = "Enter choice".PromptInt(minValue: 1, maxValue: 2);
+            Console.WriteLine("3) Exit");
+            var choice = "Enter choice".PromptInt(minValue: 1, maxValue: 3);
             // Menu code up
 
             // Second menu for each Choice
             switch (choice)
             {
                 // Account management
+                
                 case 1:
                     Console.Clear();
                     Console.WriteLine("1) Create a new profile");
@@ -97,6 +99,9 @@ internal static class Track
                             break;
                     }
 
+                    break;
+                case 3:
+                    Environment.Exit(0);
                     break;
             }
         }
