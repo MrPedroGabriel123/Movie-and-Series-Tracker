@@ -102,7 +102,20 @@ internal static class Track
                     }
                     break;
                 
-                
+                case 2:
+                    Console.Write("Which profile do you want to enter");
+                    Console.WriteLine($"Users ({userList.Count}): {string.Join(", ", userList.Select(x => x.Name))}");
+                    var userChoice = Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine($"Welcome {userChoice}");
+                    Console.ReadKey();
+                    Console.WriteLine("Would you like to add or remove a film from your list?");
+                    Console.WriteLine("1) Add a film");
+                    Console.WriteLine("2) Remove a film");
+                    Console.WriteLine("3) Return to main menu");
+                    var choice2 = "Enter choice".PromptInt(minValue: 1, maxValue: 3);
+                    
+                    break;
                 case 3:
                     Environment.Exit(0);
                     break;
