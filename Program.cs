@@ -106,6 +106,15 @@ internal static class Track
                     Console.Write("Which profile do you want to enter");
                     Console.WriteLine($"Users ({userList.Count}): {string.Join(", ", userList.Select(x => x.Name))}");
                     var userChoice = Console.ReadLine();
+                    var userobj2 = userList.FirstOrDefault(x => x.Name == userChoice);
+                    if (userobj2 is null)
+                    {
+                        Console.WriteLine("User not found");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    }
+
                     Console.Clear();
                     Console.WriteLine($"Welcome {userChoice}");
                     Console.ReadKey();
@@ -120,7 +129,7 @@ internal static class Track
                         {
                             Console.WriteLine("What film would you like to add?");
                             var film = Console.ReadLine();
-                            
+
                             break;
                         }
                     }
@@ -133,6 +142,7 @@ internal static class Track
         }
     }
 
+//other stuff 
     private static List<User> HandleList(List<User>? userList = null)
     {
         if (userList == null)
@@ -142,6 +152,7 @@ internal static class Track
             var file = File.ReadAllText("accounts.json");
             return JsonSerializer.Deserialize<List<User>>(file) ?? userList;
         }
+
 
         var json = JsonSerializer.Serialize(userList, new JsonSerializerOptions {WriteIndented = true});
         File.WriteAllText("accounts.json", json);
