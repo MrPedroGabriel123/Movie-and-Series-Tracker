@@ -53,7 +53,7 @@ internal static class Track
                                 Console.ReadKey();
                                 break;
                             }
-                            
+
                             var user = new User
                             {
                                 Name = name
@@ -68,7 +68,7 @@ internal static class Track
                             Console.Clear();
                             break;
                         }
-                           
+
                         case 2:
                             if (!userList.Any())
                             {
@@ -77,13 +77,14 @@ internal static class Track
                                 Console.Clear();
                                 break;
                             }
+
                             Console.WriteLine("Which of the accounts you want to delete?");
                             Console.WriteLine(
                                 $"Users ({userList.Count}): {string.Join(", ", userList.Select(x => x.Name))}");
                             var userInput = Console.ReadLine();
 
                             var userObj = userList.FirstOrDefault(x => x.Name == userInput);
-                            
+
                             if (userObj is null)
                             {
                                 Console.WriteLine("User not found");
@@ -94,12 +95,14 @@ internal static class Track
 
                             userList.Remove(userObj);
                             HandleList(userList);
-                     
+
                             Console.Clear();
                             break;
+                        
                     }
-
                     break;
+                
+                
                 case 3:
                     Environment.Exit(0);
                     break;
