@@ -31,7 +31,7 @@ internal static class Track
             switch (choice)
             {
                 // Account management
-                
+
                 case 1:
                     Console.Clear();
                     Console.WriteLine("1) Create a new profile");
@@ -98,10 +98,10 @@ internal static class Track
 
                             Console.Clear();
                             break;
-                        
                     }
+
                     break;
-                
+
                 case 2:
                     Console.Write("Which profile do you want to enter");
                     Console.WriteLine($"Users ({userList.Count}): {string.Join(", ", userList.Select(x => x.Name))}");
@@ -114,7 +114,17 @@ internal static class Track
                     Console.WriteLine("2) Remove a film");
                     Console.WriteLine("3) Return to main menu");
                     var choice2 = "Enter choice".PromptInt(minValue: 1, maxValue: 3);
-                    
+                    switch (choice2)
+                    {
+                        case 1:
+                        {
+                            Console.WriteLine("What film would you like to add?");
+                            var film = Console.ReadLine();
+                            
+                            break;
+                        }
+                    }
+
                     break;
                 case 3:
                     Environment.Exit(0);
@@ -133,7 +143,7 @@ internal static class Track
             return JsonSerializer.Deserialize<List<User>>(file) ?? userList;
         }
 
-        var json = JsonSerializer.Serialize(userList, new JsonSerializerOptions { WriteIndented = true} );
+        var json = JsonSerializer.Serialize(userList, new JsonSerializerOptions {WriteIndented = true});
         File.WriteAllText("accounts.json", json);
         return userList;
     }
