@@ -128,7 +128,16 @@ internal static class Track
                         case 1:
                         {
                             Console.WriteLine("What film would you like to add?");
-                            var film = Console.ReadLine();
+                            var show = Console.ReadLine();
+                            var userExists = userList.Exists(x => x.List<Shows> == show);
+                            if (userExists)
+                            {
+                                Console.WriteLine("This show already exists");
+                                Console.ReadKey();
+                                break;
+                            }
+                            
+                            
 
                             break;
                         }
