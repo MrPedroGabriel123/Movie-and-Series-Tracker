@@ -129,13 +129,13 @@ internal static class Track
                         {
                             Console.WriteLine("What film would you like to add?");
                             var show = Console.ReadLine();
-                            var userExists = userList.Exists(x => x.List<Shows> == show);
-                            if (userExists)
-                            {
-                                Console.WriteLine("This show already exists");
-                                Console.ReadKey();
-                                break;
-                            }
+                            //var userExists = userList.Exists(x => x.List<Shows> == show);
+                            //if (userExists)
+                          //{
+                           // Console.WriteLine("This show already exists");
+                                //Console.ReadKey();
+                               // break;
+                           // }
                             
                             
 
