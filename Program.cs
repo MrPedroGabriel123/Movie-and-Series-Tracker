@@ -147,6 +147,23 @@ internal static class Track
                                 Console.ReadKey();
                                 break;
                             }
+
+                            
+                        }
+                            break;
+                        case 2:
+                        {
+                            if(userobj2.Shows is null)
+                            {
+                                Console.WriteLine("There are no shows added");
+                                Console.ReadKey();
+                                Console.Clear();
+                                break;
+                            }
+                            Console.WriteLine("What fil would you like to delete");
+                            Console.WriteLine($"Shows ({userobj2.Shows.Count}): {string.Join(", ", userobj2.Shows.Select(x => x.Name))}");
+                            var userInput = Console.ReadLine();
+                            
                             
                             break;
                         }
