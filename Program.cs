@@ -130,14 +130,7 @@ internal static class Track
                             
                             Console.WriteLine("What film would you like to add?");
                             var show = Console.ReadLine();
-                            var showExists = userobj2.Shows.Exists(x => x.Name == show);
-                            if (showExists)
-                            {
-                                Console.WriteLine("Show already exists");
-                                Console.ReadKey();
-                                break;
-                            }
-                            var shows = new Shows
+                            var shows  = new Shows
                             {
                                 Name = show
                             };
@@ -147,10 +140,14 @@ internal static class Track
                             Console.ReadKey();
                             Console.Clear();
 
-                           
+                            var showExists = userobj2.Shows.Exists(x => x.Name == show);
+                            if (showExists)
+                            {
+                                Console.WriteLine("Show already exists");
+                                Console.ReadKey();
+                                break;
+                            }
                             
-                            
-
                             break;
                         }
                     }
