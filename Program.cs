@@ -127,6 +127,7 @@ internal static class Track
                     {
                         case 1:
                         {
+                            
                             Console.WriteLine("What film would you like to add?");
                             var show = Console.ReadLine();
                             var showExists = userobj2.Shows.Exists(x => x.Name == show);
@@ -136,7 +137,17 @@ internal static class Track
                                 Console.ReadKey();
                                 break;
                             }
-                            
+                            var shows = new Shows
+                            {
+                                Name = show
+                            };
+                            userobj2.Shows.Add(shows);
+                            HandleList(userList);
+                            Console.WriteLine($"{shows.Name} added");
+                            Console.ReadKey();
+                            Console.Clear();
+
+                           
                             
                             
 
